@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Bubbling Examples</title>
+  <style>
+    section { display: none; margin: 20px; }
+    section.active { display: block; }
+    button { margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Event Bubbling and Related Concepts</h1>
+
+  <!-- Navigation Buttons -->
+  <div>
+    <button onclick="showExample('example1')">Event Bubbling</button>
+    <button onclick="showExample('example2')">Identifying Problems</button>
+    <button onclick="showExample('example3')">Stopping Propagation</button>
+    <button onclick="showExample('example4')">Bubbling vs Capturing</button>
+    <button onclick="showExample('example5')">Event Delegation</button>
+  </div>
+
+  <!-- Example 1: Event Bubbling -->
+  <section id="example1" class="active">
+    <h2>Understanding Event Bubbling</h2>
+    <div id="outer" style="padding: 20px; background-color: lightblue;">
+      Outer Div
+      <div id="middle" style="padding: 20px; background-color: lightcoral;">
+        Middle Div
+        <button id="inner" style="padding: 10px;">Inner Button</button>
+      </div>
+    </div>
+    <script src="e1.js"></script>
+  </section>
+
+  <!-- Example 2: Identifying Problems -->
+  <section id="example2">
+    <h2>Identifying Problems Where Event Bubbling Can Be Utilized</h2>
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList">
+      <li>
+        Task 1
+        <button class="delete">Delete</button>
+        <button class="complete">Mark as Completed</button>
+      </li>
+    </ul>
+    <script src="e2.js"></script>
+  </section>
+
+  <!-- Example 3: Stopping Propagation -->
+  <section id="example3">
+    <h2>Preventing Event Bubbling</h2>
+    <div id="outerStop" style="padding: 20px; background-color: lightblue;">
+      Outer Div
+      <div id="middleStop" style="padding: 20px; background-color: lightcoral;">
+        Middle Div
+        <button id="innerStop" style="padding: 10px;">Inner Button</button>
+      </div>
+    </div>
+    <script src="e3.js"></script>
+  </section>
+
+  <!-- Example 4: Bubbling vs Capturing -->
+  <section id="example4">
+    <h2>Understanding Bubbling vs Capturing</h2>
+    <div id="outerBC" style="padding: 20px; background-color: lightgreen;">
+      Outer Div
+      <div id="middleBC" style="padding: 20px; background-color: lightpink;">
+        Middle Div
+        <button id="innerBC" style="padding: 10px;">Inner Button</button>
+      </div>
+    </div>
+    <script src="e4.js"></script>
+  </section>
+
+  <!-- Example 5: Event Delegation -->
+  <section id="example5">
+    <h2>Using Event Delegation</h2>
+    <ul id="list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <script src="e5.js"></script>
+  </section>
+
+  <script>
+    function showExample(exampleId) {
+      document.querySelectorAll("section").forEach(section => section.classList.remove("active"));
+      document.getElementById(exampleId).classList.add("active");
+    }
+  </script>
+</body>
+</html>
