@@ -61,5 +61,3 @@ This repository demonstrates the key concepts of Event Bubbling in JavaScript, a
 └── README.md
 ```
 
-Happy Learning! 🎉
-
